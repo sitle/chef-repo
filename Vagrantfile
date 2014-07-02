@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.roles_path = "roles"
       chef.data_bags_path = ["data_bags"]
-      chef.encrypted_data_bag_secret_key_path = 'data_bags/secret_key'
+      chef.encrypted_data_bag_secret_key_path = '.chef/encrypted_data_bag_secret'
       chef.custom_config_path = "Vagrantfile.chef"
 
       # Application des recipes/roles
@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.roles_path = "roles"
       chef.data_bags_path = ["data_bags"]
-      chef.encrypted_data_bag_secret_key_path = 'data_bags/secret_key'
+      chef.encrypted_data_bag_secret_key_path = '.chef/encrypted_data_bag_secret'
       chef.custom_config_path = "Vagrantfile.chef"
 
       # Application des recipes/roles
@@ -85,7 +85,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.roles_path = "roles"
       chef.data_bags_path = ["data_bags"]
-      chef.encrypted_data_bag_secret_key_path = 'data_bags/secret_key'
+      chef.encrypted_data_bag_secret_key_path = '.chef/encrypted_data_bag_secret'
       chef.custom_config_path = "Vagrantfile.chef"
 
       # Application des recipes/roles
@@ -117,7 +117,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
       chef.roles_path = "roles"
       chef.data_bags_path = ["data_bags"]
-      chef.encrypted_data_bag_secret_key_path = 'data_bags/secret_key'
+      chef.encrypted_data_bag_secret_key_path = '.chef/encrypted_data_bag_secret'
       chef.custom_config_path = "Vagrantfile.chef"
 
       # Application des recipes/roles
