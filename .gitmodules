@@ -1,0 +1,3 @@
+[submodule "packer"]
+	path = packer
+	url = git@gitlab.gov.pf:infrastructure/packer.git
