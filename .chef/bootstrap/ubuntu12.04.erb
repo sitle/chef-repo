@@ -2,11 +2,11 @@ bash -c '
 
 <%= "export http_proxy=\"#{knife_config[:bootstrap_proxy]}\"" if knife_config[:bootstrap_proxy] -%>
 
-PACKAGE_URL="http://repository.toriki.os.gov.pf/chef/ubuntu/12.04/chef_11.12.8-1_amd64.deb"
+PACKAGE_URL="http://repository.os.gov.pf/archives/ubuntu-12.04/chef_11.12.8-2_amd64.deb"
 
 if [ ! -f /usr/bin/chef-client ]; then
-  wget $PACKAGE_URL -O /tmp/chef-client-package.rpm
-  dpkg -i /tmp/chef-client-package.rpm
+  wget $PACKAGE_URL -O /tmp/chef-client-package.deb
+  dpkg -i /tmp/chef-client-package.deb
 fi
 
 mkdir -p /etc/chef
