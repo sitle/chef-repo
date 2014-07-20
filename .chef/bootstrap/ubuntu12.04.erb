@@ -21,10 +21,10 @@ awk NF /tmp/validation.pem > /etc/chef/validation.pem
 rm /tmp/validation.pem
 chmod 0600 /etc/chef/validation.pem
 
-<% if @chef_config[:encrypted_data_bag_secret] -%>
+<% if @chef_config[:knife].has_key?(:secret_file) -%>
 (
 cat <<'EOP'
-<%= encrypted_data_bag_secret %>
+<%= IO.read(Chef::Config[:knife][:secret_file]) %>
 EOP
 ) > /tmp/encrypted_data_bag_secret
 
