@@ -4,3 +4,6 @@
 [submodule "documentation"]
 	path = documentation
 	url = git@gitlab.gov.pf:infrastructure/os-docs.git
+[submodule "site-cookbooks/openstack-database"]
+	path = site-cookbooks/openstack-database
+	url = git@gitlab.gov.pf:infrastructure/chef-openstack-database.git
