@@ -1,0 +1,59 @@
+{
+  "name": "openstack-loadbalancer-db-toriki",
+  "description": "This role configure nodes to act as loadbalancer for Openstack Database",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "keepalived": {
+      "shared_address": true,
+      "global": {
+        "router_ids": {
+          "db1.toriki.os.gov.pf": "db1.toriki.os.gov.pf",
+          "db2.toriki.os.gov.pf": "db2.toriki.os.gov.pf"
+        }
+      },
+      "check_scripts": {
+        "chk_haproxy": {
+          "script": "killall -0 haproxy",
+          "interval": 2,
+          "weight": 2
+        }
+      },
+      "instances": {
+        "vi_1": {
+          "ip_addresses": "172.16.1.50 dev eth1",
+          "interface": "eth1",
+          "state": "MASTER",
+          "states": {
+            "db1.toriki.os.gov.pf": "master",
+            "db2.toriki.os.gov.pf": "backup"
+          },
+          "virtual_router_id": 100,
+          "priorities": {
+            "db1.toriki.os.gov.pf": 100,
+            "db2.toriki.os.gov.pf": 10
+          },
+          "track_script": "chk_haproxy",
+          "nopreempt": false,
+          "advert_int": 1,
+          "auth_type": "PASS",
+          "auth_pass": "secret"
+        }
+      }
+    },
+    "openstack-loadbalancer": {
+      "type": "db",
+      "client_port": "3306",
+      "cluster_port": "3307",
+      "zone": "toriki"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[keepalived::default]",
+    "recipe[openstack-loadbalancer::default]"
+  ],
+  "env_run_lists": {
+  }
+}

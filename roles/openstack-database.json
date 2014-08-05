@@ -1,0 +1,31 @@
+{
+  "name": "openstack-database",
+  "description": "This role configure nodes to act as database in Openstack",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "percona": {
+      "skip_passwords": false,
+      "language": "/usr/share/mysql/french",
+      "server": {
+        "role": "cluster",
+        "bind_address": "0.0.0.0",
+        "port": "3307"
+      },
+      "cluster": {
+        "package": "percona-xtradb-cluster-56",
+        "wsrep_provider": "/usr/lib/libgalera_smm.so",
+        "wsrep_cluster_name": "openstack-database-cluster",
+        "wsrep_sst_receive_interface": "eth0"
+      }
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[base-servers]",
+    "recipe[openstack-database::default]"
+  ],
+  "env_run_lists": {
+  }
+}
