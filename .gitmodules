@@ -7,6 +7,3 @@
 [submodule "site-cookbooks/openstack-loadbalancer"]
 	path = site-cookbooks/openstack-loadbalancer
 	url = git@gitlab.gov.pf:infrastructure/chef-openstack-loadbalancer.git
-[submodule "documentation"]
-	path = documentation
-	url = git@gitlab.os.gov.pf:sitle/os-documentation.git
